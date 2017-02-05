@@ -126,8 +126,7 @@ struct ast *newExpression(char *column, char *cmp, int64_t number, int is_signed
    if (id == UR_E_INVALID_NAME) {
       printf("Warning: %s is not present in input format. Corresponding rule will always evaluate false.\n", column);
       newast->id = UR_INVALID_FIELD;
-   }
-   else if (ur_get_type(id) != UR_TYPE_INT8 &&
+   } else if (ur_get_type(id) != UR_TYPE_INT8 &&
             ur_get_type(id) != UR_TYPE_UINT8 &&
             ur_get_type(id) != UR_TYPE_INT16 &&
             ur_get_type(id) != UR_TYPE_UINT16 &&
@@ -137,8 +136,7 @@ struct ast *newExpression(char *column, char *cmp, int64_t number, int is_signed
             ur_get_type(id) != UR_TYPE_UINT64) {
       printf("Warning: Type of %s is not integer. Corresponding rule will always evaluate false.\n", column);
       newast->id = UR_INVALID_FIELD;
-   }
-   else {
+   } else {
       newast->id = id;
    }
    return (struct ast *) newast;
@@ -158,13 +156,11 @@ struct ast *newExpressionFP(char *column, char *cmp, double number)
    if (id == UR_E_INVALID_NAME) {
       printf("Warning: %s is not present in input format. Corresponding rule will always evaluate false.\n", column);
       newast->id = UR_INVALID_FIELD;
-   }
-   else if (ur_get_type(id) != UR_TYPE_FLOAT &&
+   } else if (ur_get_type(id) != UR_TYPE_FLOAT &&
             ur_get_type(id) != UR_TYPE_DOUBLE) {
      printf("Warning: Type of %s is not float. Corresponding rule will always evaluate false.\n", column);
      newast->id = UR_INVALID_FIELD;
-   }
-   else {
+   } else {
       newast->id = id;
    }
    return (struct ast *) newast;
@@ -199,12 +195,10 @@ struct ast *newIP(char *column, char *cmp, char *ipAddr)
    if (id == UR_E_INVALID_NAME) {
       printf("Warning: %s is not present in input format. Corresponding rule will always evaluate false.\n", column);
       newast->id = UR_INVALID_FIELD;
-   }
-   else if (ur_get_type(id) != UR_TYPE_IP) {
+   } else if (ur_get_type(id) != UR_TYPE_IP) {
       printf("Warning: Type of %s is not IP address. Corresponding rule will always evaluate false.\n", column);
       newast->id = UR_INVALID_FIELD;
-   }
-   else {
+   } else {
       newast->id = id;
    }
    return (struct ast *) newast;
@@ -240,14 +234,12 @@ struct ast *newString(char *column, char *cmp, char *s)
    if (id == UR_E_INVALID_NAME) {
       printf("Warning: %s is not present in input format. Corresponding rule will always evaluate false.\n", column);
       newast->id = UR_INVALID_FIELD;
-   }
-   else if (ur_get_type(id) != UR_TYPE_STRING && 
+   } else if (ur_get_type(id) != UR_TYPE_STRING && 
             ur_get_type(id) != UR_TYPE_BYTES &&
             ur_get_type(id) != UR_TYPE_CHAR) {
       printf("Warning: Type of %s is not string. Corresponding rule will always evaluate false.\n", column);
       newast->id = UR_INVALID_FIELD;
-   }
-   else {
+   } else {
       newast->id = id;
    }
    return (struct ast *) newast;
